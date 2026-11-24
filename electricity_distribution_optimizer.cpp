@@ -102,7 +102,7 @@ void kruskalsAlgorithm(){
     vector<int> a = u;
     vector<int> b = v;
     vector<int> c = w;
-    // Sort connections by cost
+    
     for (int i = 0; i < e; i++) {
         for (int j = i + 1; j < e; j++) {
             if (c[i] > c[j]) {
