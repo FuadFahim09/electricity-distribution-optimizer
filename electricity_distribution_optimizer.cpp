@@ -43,8 +43,7 @@ void addConnection(){
     }
  
     for (int i = 0; i < u.size(); i++){
-        if ((u[i] == a && v[i] == b) ||
-            (u[i] == b && v[i] == a)){
+        if ((u[i] == a && v[i] == b) || (u[i] == b && v[i] == a)){
             cout << "Connection already exists!\n";
             return;
         }
@@ -70,13 +69,11 @@ void displayNetwork()
 
         for (int j = 0; j < u.size(); j++) {
             if (u[j] == i){
-                cout << locations[v[j]]
-                     << "(" << w[j] << ") ";
+                cout << locations[v[j]]<< "(" << w[j] << ") ";
                 found = true;
             }
             else if (v[j] == i) {
-                cout << locations[u[j]]
-                     << "(" << w[j] << ") ";
+                cout << locations[u[j]]<< "(" << w[j] << ") ";
                 found = true;
             }
         }
@@ -120,9 +117,7 @@ void kruskalsAlgorithm(){
         int x = findParent(parent, a[i]);
         int y = findParent(parent, b[i]);
         if (x != y){
-            cout << locations[a[i]] << " - "
-                 << locations[b[i]]
-                 << " | Cost: " << c[i] << endl;
+            cout << locations[a[i]] << " - "<< locations[b[i]]<< " | Cost: " << c[i] << endl;
             totalCost += c[i];
             count++;
             parent[x] = y;}
@@ -132,8 +127,7 @@ void kruskalsAlgorithm(){
         cout << "\nNetwork is not fully connected!\n";
         cout << "Minimum cost network cannot be completed.\n";
         return; }
-    cout << "\nTotal Installation Cost: "
-<< totalCost << endl;
+    cout << "\nTotal Installation Cost: "<< totalCost << endl;
 }
 
 int main(){
