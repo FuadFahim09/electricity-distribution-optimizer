@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <string>
-using namespace std;
 
+using namespace std;
 vector<string> locations;
 vector<vector<int>> graph;
-vector<int> u, v, w;
-
+vector<int> u, v, w;
 void addLocation()
 {
     string name;
