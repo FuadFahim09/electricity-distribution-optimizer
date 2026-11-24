@@ -8,8 +8,7 @@ using namespace std;
 vector<string> locations;
 vector<int> u, v, w;
 // Add a new location
-void addLocation()
-{
+void addLocation(){
     string name;
     cout << "Enter location name: ";
     cin >> name;
@@ -17,17 +16,14 @@ void addLocation()
     cout << "Location added successfully!\n";
 }
 // Add a connection between two locations
-void addConnection()
-{
-    if (locations.size() < 2)
-    {
+void addConnection(){
+    if (locations.size() < 2){
         cout << "Add at least two locations first!\n";
         return;
     }
     int a, b, cost;
     cout << "\nAvailable Locations:\n";
-    for (int i = 0; i < locations.size(); i++)
-    {
+    for (int i = 0; i < locations.size(); i++){
         cout << i << ". " << locations[i] << endl;
     }
     cout << "Enter first location index: ";
@@ -35,24 +31,20 @@ void addConnection()
     cout << "Enter second location index: ";
     cin >> b;
     if (a < 0 || b < 0 || a >= locations.size() ||
-        b >= locations.size() || a == b)
-    {
+        b >= locations.size() || a == b){
         cout << "Invalid location selection!\n";
         return;
     }
     cout << "Enter installation cost: ";
     cin >> cost;
-    if (cost < 0)
-    {
+    if (cost < 0) {
         cout << "Cost cannot be negative!\n";
         return;
     }
     // Check duplicate connection
-    for (int i = 0; i < u.size(); i++)
-    {
+    for (int i = 0; i < u.size(); i++){
         if ((u[i] == a && v[i] == b) ||
-            (u[i] == b && v[i] == a))
-        {
+            (u[i] == b && v[i] == a)){
             cout << "Connection already exists!\n";
             return;
         }
@@ -66,28 +58,23 @@ void addConnection()
 // Display all connections
 void displayNetwork()
 {
-    if (locations.empty())
-    {
+    if (locations.empty()){
         cout << "No locations available!\n";
         return;
     }
     cout << "\n===== ELECTRICITY NETWORK =====\n";
-    for (int i = 0; i < locations.size(); i++)
-    {
+    for (int i = 0; i < locations.size(); i++) {
         cout << locations[i] << " -> ";
 
         bool found = false;
 
-        for (int j = 0; j < u.size(); j++)
-        {
-            if (u[j] == i)
-            {
+        for (int j = 0; j < u.size(); j++) {
+            if (u[j] == i){
                 cout << locations[v[j]]
                      << "(" << w[j] << ") ";
                 found = true;
             }
-            else if (v[j] == i)
-            {
+            else if (v[j] == i) {
                 cout << locations[u[j]]
                      << "(" << w[j] << ") ";
                 found = true;
@@ -105,8 +92,7 @@ int findParent(vector<int>& parent, int x){
     return parent[x] = findParent(parent, parent[x]);
 }
 // Kruskal's Algorithm
-void kruskalsAlgorithm()
-{
+void kruskalsAlgorithm(){
     int n = locations.size();
     int e = u.size();
     if (n == 0) {
@@ -150,8 +136,7 @@ void kruskalsAlgorithm()
 << totalCost << endl;
 }
 // Main function
-int main()
-{
+int main(){
     int choice;
     while (true)
     {
@@ -164,8 +149,7 @@ int main()
         cout << "5. Exit\n";
         cout << "\nEnter your choice: ";
         cin >> choice;
-        switch (choice)
-        {
+        switch (choice){
             case 1:
                 addLocation();
                 break;
