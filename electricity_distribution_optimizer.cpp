@@ -7,7 +7,7 @@ using namespace std;
 
 vector<string> locations;
 vector<int> u, v, w;
-// Add a new location
+
 void addLocation(){
     string name;
     cout << "Enter location name: ";
@@ -15,7 +15,7 @@ void addLocation(){
     locations.push_back(name);
     cout << "Location added successfully!\n";
 }
-// Add a connection between two locations
+
 void addConnection(){
     if (locations.size() < 2){
         cout << "Add at least two locations first!\n";
@@ -41,7 +41,7 @@ void addConnection(){
         cout << "Cost cannot be negative!\n";
         return;
     }
-    // Check duplicate connection
+ 
     for (int i = 0; i < u.size(); i++){
         if ((u[i] == a && v[i] == b) ||
             (u[i] == b && v[i] == a)){
@@ -55,7 +55,7 @@ void addConnection(){
     cout << "Connection added successfully!\n";
 }
 
-// Display all connections
+
 void displayNetwork()
 {
     if (locations.empty()){
@@ -85,13 +85,13 @@ void displayNetwork()
         cout << endl;
     }
 }
-// Find the parent of a location
+
 int findParent(vector<int>& parent, int x){
     if (parent[x] == x)
         return x;
     return parent[x] = findParent(parent, parent[x]);
 }
-// Kruskal's Algorithm
+
 void kruskalsAlgorithm(){
     int n = locations.size();
     int e = u.size();
@@ -135,7 +135,7 @@ void kruskalsAlgorithm(){
     cout << "\nTotal Installation Cost: "
 << totalCost << endl;
 }
-// Main function
+
 int main(){
     int choice;
     while (true)
